@@ -1,0 +1,24 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#003791" stroke="#3b82f6" stroke-width="4"/>
+  
+  <!-- PlayStation logo inspired design -->
+  <g transform="translate(64, 64)">
+    <!-- Controller shape -->
+    <rect x="-25" y="-15" width="50" height="30" rx="8" fill="#ffffff" opacity="0.9"/>
+    
+    <!-- Controller buttons -->
+    <circle cx="-15" cy="-5" r="3" fill="#003791"/>
+    <circle cx="-5" cy="-5" r="3" fill="#003791"/>
+    <circle cx="5" cy="-5" r="3" fill="#003791"/>
+    <circle cx="15" cy="-5" r="3" fill="#003791"/>
+    
+    <!-- D-pad -->
+    <rect x="-8" y="2" width="16" height="4" rx="2" fill="#003791"/>
+    <rect x="-2" y="-4" width="4" height="12" rx="2" fill="#003791"/>
+    
+    <!-- Info icon -->
+    <circle cx="0" cy="0" r="12" fill="#3b82f6" opacity="0.8"/>
+    <text x="0" y="4" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">i</text>
+  </g>
+</svg>

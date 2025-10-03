@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlayStation Game Info</title>
+  <style>
+    body {
+      width: 350px;
+      min-height: 400px;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+      color: white;
+    }
+
+    .header {
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .header p {
+      margin: 8px 0 0 0;
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .status-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    .settings {
+      margin-bottom: 20px;
+    }
+
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .setting-label {
+      font-size: 14px;
+      color: #e5e7eb;
+    }
+
+    .toggle {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      background: #374151;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle.active {
+      background: #3b82f6;
+    }
+
+    .toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle.active::after {
+      transform: translateX(20px);
+    }
+
+    .info-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .info-section h3 {
+      margin: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .info-section p {
+      margin: 0;
+      font-size: 12px;
+      color: #e5e7eb;
+      line-height: 1.4;
+    }
+
+    .footer {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #2563eb;
+    }
+
+    .button.secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .button.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>🎮 PlayStation Game Info</h1>
+    <p>Informações detalhadas dos jogos do PS Plus</p>
+  </div>
+
+  <div class="content">
+    <div class="status">
+      <div class="status-indicator"></div>
+      <span>Extensão ativa</span>
+    </div>
+
+    <div class="settings">
+      <div class="setting-item">
+        <span class="setting-label">Mostrar informações</span>
+        <div class="toggle active" id="toggleEnabled"></div>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Mostrar Metacritic</span>
+        <div class="toggle active" id="toggleMetacritic"></div>
+      </div>
+      <div class="setting-item">
+        <span class="setting-label">Mostrar Co-op</span>
+        <div class="toggle active" id="toggleCoop"></div>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h3>📋 Como usar</h3>
+      <p>Passe o mouse sobre qualquer jogo na página do PlayStation Plus para ver informações detalhadas como modo cooperativo, jogadores online e pontuação no Metacritic.</p>
+    </div>
+
+    <div class="info-section">
+      <h3>🔧 Configurações</h3>
+      <p>Use os toggles acima para personalizar quais informações são exibidas no tooltip.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Versão 1.0.0 | Desenvolvido para PlayStation Plus</p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
