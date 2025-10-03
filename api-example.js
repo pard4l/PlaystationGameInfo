@@ -283,8 +283,8 @@ class EnhancedPlayStationGameAPI {
       
       // Informações de coop
       coop: psnInfo.coop || 'No',
-      splitScreen: psnInfo['split-screen'] || 'NO',
-      dropInDropOut: psnInfo['supports drop-in/drop-out co-op'] || 'NO',
+      'split-screen': psnInfo['split-screen'] || 'NO',
+      'supports drop-in/drop-out co-op': psnInfo['supports drop-in/drop-out co-op'] || 'NO',
       
       // Informações adicionais
       info1: psnInfo.info1 || '',

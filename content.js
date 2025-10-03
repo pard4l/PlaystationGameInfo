@@ -492,7 +492,7 @@ class PlayStationGameInfo {
     
     let html = `
       <div class="ps-game-info-content">
-        <div class="ps-game-info-header">
+        <div class="ps-game-info-header ${gameData.metacriticScore ? 'has-score' : 'no-score'}">
           <h3>${gameData.name}</h3>
           ${gameData.metacriticScore ? `
             <div class="ps-metacritic-score" style="background-color: ${scoreColor}">
@@ -524,8 +524,8 @@ class PlayStationGameInfo {
           <span class="ps-game-info-label">Co-op Features:</span>
           <div class="ps-coop-details">
             <span class="ps-coop-item">Co-op: ${gameData.coop}</span>
-            <span class="ps-coop-item">Split-screen: ${gameData.splitScreen}</span>
-            <span class="ps-coop-item">Drop-in/Drop-out: ${gameData.dropInDropOut}</span>
+            <span class="ps-coop-item">Split-screen: ${gameData['split-screen']}</span>
+            <span class="ps-coop-item">Drop-in/Drop-out: ${gameData['supports drop-in/drop-out co-op']}</span>
           </div>
         </div>
       `;

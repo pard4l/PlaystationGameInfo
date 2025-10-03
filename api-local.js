@@ -174,21 +174,30 @@ class LocalPlayStationGameAPI {
    * Formata os dados do jogo para o tooltip
    */
   formatGameDataForTooltip(gameData) {
+    const psnInfo = gameData.psnInfo || {};
+    
     return {
       name: gameData.name,
       metacriticScore: gameData.score,
       metacriticGenres: gameData.metacriticGenres,
       metacriticUrl: gameData.url ? `https://www.metacritic.com${gameData.url}` : null,
-      online: gameData.psnInfo.online,
-      local: gameData.psnInfo.local,
-      'local+online': gameData.psnInfo['local+online'],
-      coop: gameData.psnInfo.coop,
-      'split-screen': gameData.psnInfo['split-screen'],
-      'supports drop-in/drop-out co-op': gameData.psnInfo['supports drop-in/drop-out co-op'],
-      info1: gameData.psnInfo.info1,
-      info2: gameData.psnInfo.info2,
-      info3: gameData.psnInfo.info3,
-      info4: gameData.psnInfo.info4
+      psnGenres: gameData.psnGenres,
+      
+      // Informações de multiplayer
+      online: psnInfo.online || 'No disponible',
+      local: psnInfo.local || 'No disponible',
+      'local+online': psnInfo['local+online'] || 'No disponible',
+      
+      // Informações de coop
+      coop: psnInfo.coop || 'No',
+      'split-screen': psnInfo['split-screen'] || 'NO',
+      'supports drop-in/drop-out co-op': psnInfo['supports drop-in/drop-out co-op'] || 'NO',
+      
+      // Informações adicionais
+      info1: psnInfo.info1 || '',
+      info2: psnInfo.info2 || '',
+      info3: psnInfo.info3 || '',
+      info4: psnInfo.info4 || ''
     };
   }
 

@@ -213,6 +213,14 @@
   padding-bottom: 8px;
 }
 
+.ps-game-info-header.no-score {
+  justify-content: flex-start;
+}
+
+.ps-game-info-header.no-score h3 {
+  margin: 0;
+}
+
 .ps-metacritic-score {
   color: #000000;
   padding: 2px 6px;
