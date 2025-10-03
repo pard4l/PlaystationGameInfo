@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste CORS Fix - PlayStation Game Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+            position: relative;
+        }
+        .game-card:hover {
+            transform: translateY(-2px);
+        }
+        .game-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .console-info {
+            color: #666;
+            font-size: 14px;
+        }
+        .test-info {
+            background: #e8f5e8;
+            border: 1px solid #4caf50;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Teste CORS Fix - PlayStation Game Info</h1>
+    
+    <div class="test-info">
+        <h3>📋 Status da Correção CORS:</h3>
+        <div id="cors-status" class="status warning">Testando...</div>
+        <ol>
+            <li>✅ Arquivo JSON copiado para a raiz da extensão</li>
+            <li>✅ Manifest atualizado com web_accessible_resources</li>
+            <li>✅ API atualizada com fallback local</li>
+            <li>🔄 Testando carregamento...</li>
+        </ol>
+    </div>
+
+    <div class="game-card" data-game-name="ALIENATION™">
+        <div class="game-title">ALIENATION™</div>
+        <div class="console-info">PS4</div>
+        <div class="status" id="alienation-status">Aguardando teste...</div>
+    </div>
+
+    <div class="game-card" data-game-name="The Last of Us Part II™">
+        <div class="game-title">The Last of Us Part II™</div>
+        <div class="console-info">PS4</div>
+        <div class="status" id="tlou-status">Aguardando teste...</div>
+    </div>
+
+    <div class="game-card" data-game-name="Horizon Zero Dawn™">
+        <div class="game-title">Horizon Zero Dawn™</div>
+        <div class="console-info">PS4</div>
+        <div class="status" id="horizon-status">Aguardando teste...</div>
+    </div>
+
+    <script>
+        console.log('🧪 Página de teste CORS carregada');
+        
+        // Verificar se as APIs estão disponíveis
+        const corsStatus = document.getElementById('cors-status');
+        
+        if (typeof EnhancedPlayStationGameAPI !== 'undefined') {
+            corsStatus.textContent = '✅ EnhancedPlayStationGameAPI disponível';
+            corsStatus.className = 'status success';
+            console.log('✅ EnhancedPlayStationGameAPI está disponível');
+        } else if (typeof LocalPlayStationGameAPI !== 'undefined') {
+            corsStatus.textContent = '⚠️ Usando LocalPlayStationGameAPI (fallback)';
+            corsStatus.className = 'status warning';
+            console.log('⚠️ Usando LocalPlayStationGameAPI como fallback');
+        } else {
+            corsStatus.textContent = '❌ Nenhuma API disponível';
+            corsStatus.className = 'status error';
+            console.log('❌ Nenhuma API está disponível');
+        }
+        
+        // Testar busca de jogos
+        async function testGameSearch(gameName, statusElementId) {
+            const statusElement = document.getElementById(statusElementId);
+            
+            try {
+                let API = null;
+                if (typeof EnhancedPlayStationGameAPI !== 'undefined') {
+                    API = EnhancedPlayStationGameAPI;
+                } else if (typeof LocalPlayStationGameAPI !== 'undefined') {
+                    API = LocalPlayStationGameAPI;
+                } else {
+                    statusElement.textContent = '❌ API não disponível';
+                    statusElement.className = 'status error';
+                    return;
+                }
+                
+                const api = new API();
+                const result = await api.getGameInfo(gameName);
+                
+                if (result) {
+                    statusElement.textContent = `✅ Encontrado! Score: ${result.metacriticScore}, Coop: ${result.coop}`;
+                    statusElement.className = 'status success';
+                    console.log(`✅ ${gameName}:`, result);
+                } else {
+                    statusElement.textContent = '❌ Não encontrado';
+                    statusElement.className = 'status error';
+                    console.log(`❌ ${gameName}: Não encontrado`);
+                }
+            } catch (error) {
+                statusElement.textContent = `❌ Erro: ${error.message}`;
+                statusElement.className = 'status error';
+                console.error(`❌ Erro ao testar ${gameName}:`, error);
+            }
+        }
+        
+        // Executar testes após 1 segundo
+        setTimeout(() => {
+            testGameSearch('ALIENATION™', 'alienation-status');
+            testGameSearch('The Last of Us Part II™', 'tlou-status');
+            testGameSearch('Horizon Zero Dawn™', 'horizon-status');
+        }, 1000);
+    </script>
+</body>
+</html>

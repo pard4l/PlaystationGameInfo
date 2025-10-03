@@ -398,21 +398,47 @@ class PlayStationGameInfo {
   }
 
   async getGameData(gameName) {
+    console.log('🔍 Buscando dados para:', gameName);
+    
     // Verificar cache primeiro
     if (this.gameDataCache.has(gameName)) {
+      console.log('📦 Dados encontrados no cache');
       return this.gameDataCache.get(gameName);
     }
 
     try {
-      // Simular chamada para API (por enquanto usando dados mock)
-      const gameData = await this.mockGameData(gameName);
+      // Verificar se a API está disponível (tentar ambas)
+      let API = null;
+      if (typeof EnhancedPlayStationGameAPI !== 'undefined') {
+        API = EnhancedPlayStationGameAPI;
+        console.log('✅ Usando EnhancedPlayStationGameAPI');
+      } else if (typeof LocalPlayStationGameAPI !== 'undefined') {
+        API = LocalPlayStationGameAPI;
+        console.log('✅ Usando LocalPlayStationGameAPI (fallback)');
+      } else {
+        console.error('❌ Nenhuma API está disponível');
+        return null;
+      }
+
+      console.log('🚀 Criando instância da API...');
+      const api = new API();
       
-      // Armazenar no cache
-      this.gameDataCache.set(gameName, gameData);
+      console.log('📡 Buscando dados via API...');
+      const gameData = await api.getGameInfo(gameName);
       
-      return gameData;
+      if (gameData) {
+        console.log('✅ Dados encontrados via API:', gameData.name);
+        console.log('📊 Dados completos:', gameData);
+        // Armazenar no cache
+        this.gameDataCache.set(gameName, gameData);
+        return gameData;
+      }
+      
+      console.log('❌ Jogo não encontrado na API:', gameName);
+      return null;
     } catch (error) {
-      console.error('Erro ao buscar dados do jogo:', error);
+      console.error('❌ Erro ao buscar dados:', error);
+      console.error('❌ Stack trace:', error.stack);
       return null;
     }
   }
@@ -460,37 +486,83 @@ class PlayStationGameInfo {
 
   displayGameInfo(gameData, event) {
     console.log('🎮 DisplayGameInfo recebeu dados:', JSON.stringify(gameData));
-    console.log('🎮 Nome que será exibido:', JSON.stringify(gameData.name));
     
-    this.tooltip.innerHTML = `
+    const scoreColor = this.getScoreColor(gameData.metacriticScore);
+    const hasCoop = gameData.coop === 'YES';
+    
+    let html = `
       <div class="ps-game-info-content">
         <div class="ps-game-info-header">
           <h3>${gameData.name}</h3>
+          ${gameData.metacriticScore ? `
+            <div class="ps-metacritic-score" style="background-color: ${scoreColor}">
+              ${gameData.metacriticScore}
+            </div>
+          ` : ''}
         </div>
+        
         <div class="ps-game-info-details">
           <div class="ps-game-info-item">
-            <span class="ps-game-info-label">Co-op:</span>
-            <span class="ps-game-info-value ${gameData.coop === 'YES' ? 'available' : 'not-available'}">${gameData.coop}</span>
+            <span class="ps-game-info-label">Genre:</span>
+            <span class="ps-game-info-value">${gameData.metacriticGenres || 'N/A'}</span>
           </div>
+          
           <div class="ps-game-info-item">
-            <span class="ps-game-info-label">Online:</span>
-            <span class="ps-game-info-value ${gameData.online !== 'not available' ? 'available' : 'not-available'}">${gameData.online}</span>
+            <span class="ps-game-info-label">Multiplayer:</span>
+            <div class="ps-multiplayer-details">
+              <span class="ps-multiplayer-item">Online: ${gameData.online}</span>
+              <span class="ps-multiplayer-item">Local: ${gameData.local}</span>
+              <span class="ps-multiplayer-item">Local+Online: ${gameData['local+online']}</span>
+            </div>
           </div>
-          <div class="ps-game-info-item">
-            <span class="ps-game-info-label">Local:</span>
-            <span class="ps-game-info-value ${gameData.local !== 'not available' ? 'available' : 'not-available'}">${gameData.local}</span>
+    `;
+
+    // Adicionar informações de coop se disponível
+    if (hasCoop) {
+      html += `
+        <div class="ps-game-info-item">
+          <span class="ps-game-info-label">Co-op Features:</span>
+          <div class="ps-coop-details">
+            <span class="ps-coop-item">Co-op: ${gameData.coop}</span>
+            <span class="ps-coop-item">Split-screen: ${gameData.splitScreen}</span>
+            <span class="ps-coop-item">Drop-in/Drop-out: ${gameData.dropInDropOut}</span>
           </div>
-          <div class="ps-game-info-item">
-            <span class="ps-game-info-label">Online + Local:</span>
-            <span class="ps-game-info-value ${gameData['online + local'] !== 'not available' ? 'available' : 'not-available'}">${gameData['online + local']}</span>
+        </div>
+      `;
+    }
+
+    // Adicionar informações extras se disponíveis
+    const extraInfo = [gameData.info1, gameData.info2, gameData.info3, gameData.info4]
+      .filter(info => info && info.trim() !== '');
+    
+    if (extraInfo.length > 0) {
+      html += `
+        <div class="ps-game-info-item">
+          <span class="ps-game-info-label">Additional Info:</span>
+          <div class="ps-extra-info">
+            ${extraInfo.map(info => `<span class="ps-extra-item">${info}</span>`).join('')}
           </div>
-          <div class="ps-game-info-item">
-            <span class="ps-game-info-label">Metacritic:</span>
-            <span class="ps-game-info-value metacritic-score ${this.getMetacriticClass(gameData.metacritic)}">${gameData.metacritic}</span>
-          </div>
+        </div>
+      `;
+    }
+
+    // Adicionar link para Metacritic se disponível
+    if (gameData.metacriticUrl) {
+      html += `
+        <div class="ps-game-info-footer">
+          <a href="${gameData.metacriticUrl}" target="_blank" class="ps-metacritic-link">
+            View on Metacritic
+          </a>
+        </div>
+      `;
+    }
+
+    html += `
         </div>
       </div>
     `;
+
+    this.tooltip.innerHTML = html;
     this.tooltip.style.display = 'block';
     this.updateTooltipPosition(event);
   }
@@ -500,6 +572,16 @@ class PlayStationGameInfo {
     if (score >= 80) return 'good';
     if (score >= 70) return 'average';
     return 'poor';
+  }
+
+  getScoreColor(score) {
+    if (!score) return '#666666';
+    
+    if (score >= 90) return '#00ff00'; // Verde - Excelente
+    if (score >= 80) return '#90ee90'; // Verde claro - Muito bom
+    if (score >= 70) return '#ffff00'; // Amarelo - Bom
+    if (score >= 60) return '#ffa500'; // Laranja - Regular
+    return '#ff0000'; // Vermelho - Ruim
   }
 
   updateTooltipPosition(event) {

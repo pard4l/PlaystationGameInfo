@@ -1,0 +1,381 @@
+{
+    "data": {
+      "items": [
+        {
+          "id": 1300484852,
+          "type": "game-title",
+          "typeId": 13,
+          "title": "11-11: Memories Retold",
+          "slug": "11-11-memories-retold",
+          "images": [
+            {
+              "id": "6-1-690298-13",
+              "filename": "6-1-690298-13.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 640,
+              "height": 899,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/6/3/6-1-690298-13.jpg",
+              "mediaType": null,
+              "provider": "6"
+            }
+          ],
+          "rating": "T",
+          "releaseDate": "2018-11-09",
+          "premiereYear": 2018,
+          "genres": [
+            {
+              "id": null,
+              "name": "Third-Person Adventure"
+            }
+          ],
+          "description": "11th November 1916, a young photographer leaves Canada to join the Western Front in Europe. The same day, a German technician is told that his son is missing in action on the front… They will discover the reality of war, crossing paths, on the front, and the rear, trying to preserve their humanity for their loved ones in the face of disastrous events… If they can come back. At 11am the 11th Day of the 11th Month of year 1918, they will face the biggest decision of their lives… This is the moving story of the end of World War One. [Bandai Namco]",
+          "duration": null,
+          "mustSee": false,
+          "mustWatch": false,
+          "mustPlay": false,
+          "platforms": [
+            {
+              "id": null,
+              "name": "PlayStation 4"
+            },
+            {
+              "id": null,
+              "name": "Xbox One"
+            },
+            {
+              "id": null,
+              "name": "PC"
+            }
+          ],
+          "criticScoreSummary": {
+            "url": "/game/11-11-memories-retold/critic-reviews/",
+            "score": 77
+          }
+        },
+        {
+          "id": 1000365849,
+          "type": "show",
+          "typeId": 1,
+          "title": "9/11: One Day in America",
+          "slug": "911-one-day-in-america",
+          "images": [
+            {
+              "id": "2-9793a29053ee20c28221dc07e24cf457",
+              "filename": "2-9793a29053ee20c28221dc07e24cf457.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 2000,
+              "height": 3000,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/2/2/2-9793a29053ee20c28221dc07e24cf457.jpg",
+              "mediaType": null,
+              "provider": "2"
+            }
+          ],
+          "rating": "TV-MA",
+          "releaseDate": "2021-08-29",
+          "premiereYear": 2021,
+          "genres": [
+            {
+              "id": null,
+              "name": "Documentary"
+            },
+            {
+              "id": null,
+              "name": "History"
+            }
+          ],
+          "description": "The six-part documentary series made in official collaboration with the 9/11 Memorial & Museum features archival footage and first-person interviews from first responders and those who survived the attacks on 9/11.",
+          "duration": 50,
+          "mustSee": false,
+          "mustWatch": false,
+          "mustPlay": false,
+          "seasonCount": 1,
+          "criticScoreSummary": {
+            "url": "/tv/911-one-day-in-america/critic-reviews/",
+            "score": 91
+          }
+        },
+        {
+          "id": 1300525019,
+          "type": "game-title",
+          "typeId": 13,
+          "title": "Mortal Kombat 11 Ultimate",
+          "slug": "mortal-kombat-11-ultimate",
+          "images": [
+            {
+              "id": "6-1-773687-13",
+              "filename": "6-1-773687-13.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 1494,
+              "height": 1890,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/6/3/6-1-773687-13.jpg",
+              "mediaType": null,
+              "provider": "6"
+            }
+          ],
+          "rating": "M",
+          "releaseDate": "2020-11-17",
+          "premiereYear": 2020,
+          "genres": [
+            {
+              "id": null,
+              "name": "2D Fighting"
+            }
+          ],
+          "description": "Experience 2 robust and critically acclaimed story campaigns from Mk11 & Mk11: aftermath. Play as the complete 37-character roster including newly added fighters mileena, RaiN & rambo. Thousands of Skins & weapons & Gear for an unprecedented level of Fighter customization. Includes all previous guest fighters such as Terminator Joker spawn & robocop. Every mode included.",
+          "duration": null,
+          "mustSee": false,
+          "mustWatch": false,
+          "mustPlay": false,
+          "platforms": [
+            {
+              "id": null,
+              "name": "PlayStation 5"
+            },
+            {
+              "id": null,
+              "name": "PlayStation 4"
+            },
+            {
+              "id": null,
+              "name": "Xbox One"
+            },
+            {
+              "id": null,
+              "name": "Xbox Series X"
+            },
+            {
+              "id": null,
+              "name": "Nintendo Switch"
+            },
+            {
+              "id": null,
+              "name": "PC"
+            }
+          ],
+          "criticScoreSummary": {
+            "url": "/game/mortal-kombat-11-ultimate/critic-reviews/",
+            "score": 88
+          }
+        },
+        {
+          "id": 1000365844,
+          "type": "show",
+          "typeId": 1,
+          "title": "NYC Epicenters 9/11 -\u003E 2021 1/2",
+          "slug": "nyc-epicenters-911---2021-12",
+          "images": [
+            {
+              "id": "2-8ff1ab7d159e3a803052537327f675ab",
+              "filename": "2-8ff1ab7d159e3a803052537327f675ab.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 1200,
+              "height": 1778,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/2/2/2-8ff1ab7d159e3a803052537327f675ab.jpg",
+              "mediaType": null,
+              "provider": "2"
+            }
+          ],
+          "rating": "TV-MA",
+          "releaseDate": "2021-08-22",
+          "premiereYear": 2021,
+          "genres": [
+            {
+              "id": null,
+              "name": "Documentary"
+            }
+          ],
+          "description": "The four-part documentry from Spike Lee looks at not only 9/11 but also recent events that impacted New York City.",
+          "duration": 120,
+          "mustSee": false,
+          "mustWatch": false,
+          "mustPlay": false,
+          "seasonCount": 1,
+          "criticScoreSummary": {
+            "url": "/tv/nyc-epicenters-911---2021-12/critic-reviews/",
+            "score": 86
+          }
+        },
+        {
+          "id": 2000550058,
+          "type": "movie",
+          "typeId": 2,
+          "title": "Apollo 11",
+          "slug": "apollo-11",
+          "images": [
+            {
+              "id": "2-d7af5c9b9c6e09363d65c6896b26d6c3",
+              "filename": "2-d7af5c9b9c6e09363d65c6896b26d6c3.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 1382,
+              "height": 2048,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/2/2/2-d7af5c9b9c6e09363d65c6896b26d6c3.jpg",
+              "mediaType": null,
+              "provider": "2"
+            }
+          ],
+          "rating": "G",
+          "releaseDate": "2019-03-01",
+          "premiereYear": 2019,
+          "genres": [
+            {
+              "id": null,
+              "name": "Documentary"
+            },
+            {
+              "id": null,
+              "name": "History"
+            }
+          ],
+          "description": "From director Todd Douglas Miller (Dinosaur 13) comes a cinematic event fifty years in the making. Crafted from a newly discovered trove of 65mm footage, and more than 11,000 hours of uncatalogued audio recordings, Apollo 11 takes us straight to the heart of NASA’s most celebrated mission—the one that first put men on the moon, and forever made Neil Armstrong and Buzz Aldrin into household names. Immersed in the perspectives of the astronauts, the team in Mission Control, and the millions of spectators on the ground, we vividly experience those momentous days and hours in 1969 when humankind took a giant leap into the future.",
+          "duration": 93,
+          "mustSee": true,
+          "mustWatch": true,
+          "mustPlay": true,
+          "criticScoreSummary": {
+            "url": "/movie/apollo-11/critic-reviews/",
+            "score": 88
+          }
+        },
+        {
+          "id": 1300093700,
+          "type": "game-title",
+          "typeId": 13,
+          "title": "MLB 11: The Show",
+          "slug": "mlb-11-the-show",
+          "images": [
+            {
+              "id": "6-1-175373-13",
+              "filename": "6-1-175373-13.jpg",
+              "dateCreated": {
+                "date": null,
+                "timezone": null
+              },
+              "alt": null,
+              "credits": null,
+              "path": null,
+              "cropGravity": null,
+              "crop": null,
+              "caption": null,
+              "typeName": "cardImage",
+              "imageUrl": null,
+              "width": 640,
+              "height": 741,
+              "sType": null,
+              "bucketType": "catalog",
+              "bucketPath": "/provider/6/3/6-1-175373-13.jpg",
+              "mediaType": null,
+              "provider": "6"
+            }
+          ],
+          "rating": "E",
+          "releaseDate": "2011-03-08",
+          "premiereYear": 2011,
+          "genres": [
+            {
+              "id": null,
+              "name": "Baseball Sim"
+            }
+          ],
+          "description": "The #1 selling, highest rated baseball franchise is back in MLB&reg; The Show '11. Experience new ways to play The Show with the NEW PURE Analog controls. Team up in ALL NEW CO-OP play, get called up to the Big Leagues with new and improved Road to the Show features and compete for real world prizes in MLB&reg; The Show's ALL NEW Challenge of the Week.",
+          "duration": null,
+          "mustSee": true,
+          "mustWatch": true,
+          "mustPlay": true,
+          "platforms": [
+            {
+              "id": null,
+              "name": "PlayStation 3"
+            },
+            {
+              "id": null,
+              "name": "PSP"
+            },
+            {
+              "id": null,
+              "name": "PlayStation 2"
+            }
+          ],
+          "criticScoreSummary": {
+            "url": "/game/mlb-11-the-show/critic-reviews/",
+            "score": 90
+          }
+        }
+      ],
+      "totalResults": 779
+    },
+    "links": {
+      "self": {
+        "href": "https://backend.metacritic.com/finder/metacritic/autosuggest/11-11%20Memories%20Retold"
+      }
+    },
+    "meta": {
+      "componentName": null,
+      "componentDisplayName": null,
+      "componentType": null
+    }
+  }

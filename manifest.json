@@ -8,12 +8,13 @@
     "storage"
   ],
   "host_permissions": [
-    "https://www.playstation.com/*"
+    "https://www.playstation.com/*",
+    "https://www.dropbox.com/*"
   ],
   "content_scripts": [
     {
       "matches": ["https://www.playstation.com/pt-br/ps-plus/games/*"],
-      "js": ["content.js"],
+      "js": ["api-example.js", "api-local.js", "content.js"],
       "css": ["styles.css"]
     }
   ],
@@ -28,5 +29,11 @@
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["4playReviewPsn.json", "output/4playReviewPsn.json"],
+      "matches": ["https://www.playstation.com/*"]
+    }
+  ]
 }

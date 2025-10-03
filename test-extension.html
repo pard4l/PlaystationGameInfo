@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste da Extensão PlayStation Game Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .game-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-card:hover {
+            transform: translateY(-2px);
+        }
+        .game-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .console-info {
+            color: #666;
+            font-size: 14px;
+        }
+        .test-info {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste da Extensão PlayStation Game Info</h1>
+    
+    <div class="test-info">
+        <h3>📋 Instruções de Teste:</h3>
+        <ol>
+            <li>Abra o Console do navegador (F12)</li>
+            <li>Passe o mouse sobre os cards de jogos abaixo</li>
+            <li>Verifique se o tooltip aparece com as informações corretas</li>
+            <li>Observe os logs no console para debug</li>
+        </ol>
+    </div>
+
+    <div class="game-card" data-game-name="ALIENATION™">
+        <div class="game-title">ALIENATION™</div>
+        <div class="console-info">PS4</div>
+    </div>
+
+    <div class="game-card" data-game-name="The Last of Us Part II™">
+        <div class="game-title">The Last of Us Part II™</div>
+        <div class="console-info">PS4</div>
+    </div>
+
+    <div class="game-card" data-game-name="Horizon Zero Dawn™">
+        <div class="game-title">Horizon Zero Dawn™</div>
+        <div class="console-info">PS4</div>
+    </div>
+
+    <script>
+        // Simular o ambiente da extensão
+        console.log('🧪 Página de teste carregada');
+        
+        // Verificar se a API está disponível
+        if (typeof EnhancedPlayStationGameAPI !== 'undefined') {
+            console.log('✅ EnhancedPlayStationGameAPI está disponível');
+        } else {
+            console.log('❌ EnhancedPlayStationGameAPI não está disponível');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "metacritic-scraper",
+  "version": "1.0.0",
+  "description": "Script para buscar scores do Metacritic para jogos do PlayStation Plus",
+  "main": "fetch-metacritic-scores.js",
+  "scripts": {
+    "start": "node fetch-metacritic-scores.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "metacritic",
+    "playstation",
+    "games",
+    "scraper",
+    "api"
+  ],
+  "author": "PlayStation Game Info Extension",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
